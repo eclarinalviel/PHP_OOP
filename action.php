@@ -8,9 +8,6 @@ class Action extends Connect {
 	public function select_all(){
 		$con = new Connect();
 		$res = $con->getdata("SELECT * FROM tbl_products");
-		// mysql_fetch_assoc- array id will be the name of fields
-		// mysql_fetch_array - array id
-		// return mysql_fetch_object($res);
 		return $res;
 
 	}
@@ -28,11 +25,9 @@ class Action extends Connect {
 	public function edit_product($product_name, $quantity, $amount, $product_id){
 		$result = mysql_query("UPDATE tbl_products SET product_name='$product_name',quantity='$quantity',amount='$amount' WHERE id='$product_id'");
 		return $result;
-		// var_dump($result);
 	}
 	public function delete_product($product_id){
 		$result = mysql_query("DELETE FROM tbl_products WHERE id='$product_id'");
 		return $result;
-		// var_dump($result);
 	}
 }
